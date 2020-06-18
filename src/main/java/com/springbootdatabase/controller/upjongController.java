@@ -11,8 +11,10 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class upjongController {
@@ -34,7 +36,7 @@ public class upjongController {
     
     @ResponseBody
     @RequestMapping(value ="/api/upjong", method = RequestMethod.POST)
-    public ResponseEntity<Upjong[]> upjong(@RequestBody final HashMap<String,Object> post, HttpServletRequest request) throws Exception
+    public  List<HashMap> upjong(@RequestBody final HashMap<String,Object> post, HttpServletRequest request) throws Exception
     {
         request.setCharacterEncoding("UTF-8");
         RestTemplate restTemplate = new RestTemplate();
@@ -47,9 +49,16 @@ public class upjongController {
         ResponseEntity<Upjong[]> responseEntity = restTemplate.exchange(url, HttpMethod.POST, entity, Upjong[].class);
         System.out.println(responseEntity.getBody());
 
-       // HashMap<String,ResponseEntity> map1 = new HashMap<>();
-        //  map1.put("postions",responseEntity);
-//      System.out.println(map1.get("postions").getBody());
-        return responseEntity;
+        Upjong[] a = responseEntity.getBody();
+        System.out.println(a.length);
+        List<HashMap> list = new ArrayList<>();
+        for(int i =0;i<a.length;++i)
+        {
+            HashMap<String,String> inMap= new HashMap<String,String>();
+            inMap.put("dong",a[i].getDong()[0]);
+            inMap.put("count",a[i].getCount());
+            list.add(inMap);
+        }
+        return list;
     }
 }

@@ -12,68 +12,22 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Upjong {
 
-    private double x;
-    private double y;
-    private String gu;
-    private String dong;
-    private String address;
-    private String names;
-    private String classes;
+   private String[] dong;
+   private String count;
 
-    public double getX() {
-        return this.x;
+    public String[] getDong() {
+        return dong;
     }
 
-    public void setX(double x) {
-        this.x = x;
-    }
-
-    public double getY() {
-        return this.y;
-    }
-
-    public void setY(double y) {
-        this.y = y;
-    }
-
-    public String getGu() {
-        return this.gu;
-    }
-
-    public void setGu(String gu) {
-        this.gu = gu;
-    }
-
-    public String getDong() {
-        return this.dong;
-    }
-
-    public void setDong(String dong) {
+    public void setDong(String[] dong) {
         this.dong = dong;
     }
 
-    public String getAddress() {
-        return this.address;
+    public String getCount() {
+        return count;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setCount(String count) {
+        this.count = count;
     }
-
-    public String getNames() {
-        return this.names;
-    }
-
-    public void setNames(String names) {
-        this.names = names;
-    }
-
-    public String getClasses() {
-        return this.classes;
-    }
-
-    public void setClasses(String classes) {
-        this.classes = classes;
-    }
-
 }
