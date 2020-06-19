@@ -3,12 +3,13 @@ package com.springbootdatabase.model;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 public class hap1 {
-    private String hap;
+    private int hap;
 
-    public String getHap() {
+    public int getHap() {
         return hap;
     }
-    public void setHap(String hap) {
+
+    public void setHap(int hap) {
         this.hap = hap;
     }
 }

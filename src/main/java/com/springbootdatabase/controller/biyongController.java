@@ -56,11 +56,14 @@ public class biyongController {
         List<Map<String,String>> list = new ArrayList<>();
 
         for(int i =0; i<a.length; i++){
+            float month2019 =Float.parseFloat(a[i].get월별2019매출예측());
+            float month2020 =Float.parseFloat(a[i].get월별2020매출예측());
+
             HashMap<String,String> inmap= new HashMap<String,String>();
-            inmap.put("월별2019매출예측",a[i].get월별2019매출예측());
-            inmap.put("월별2020매출예측",a[i].get월별2020매출예측());
-            inmap.put("hap",biyong.getHap());
-            inmap.put("hap1",biyong3.getHap());
+            inmap.put("월별2019매출예측",String.valueOf((int)(month2019)));
+            inmap.put("월별2020매출예측",String.valueOf((int)(month2020)));
+            inmap.put("hap",String.valueOf(biyong.getHap()));
+            inmap.put("hap1",String.valueOf(biyong3.getHap()));
             inmap.put("danga",biyong.getDanga());
             inmap.put("gil",a[i].get상권_코드_명()); //길이름의 맵
             list.add(inmap);

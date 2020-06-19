@@ -55,8 +55,8 @@ public class upjongController {
         for(int i =0;i<a.length;++i)
         {
             HashMap<String,String> inMap= new HashMap<String,String>();
-            inMap.put("dong",a[i].getDong()[0]);
-            inMap.put("count",a[i].getCount());
+            inMap.put("dong",a[i].getDong2()[0]);
+            inMap.put("count",String.valueOf(a[i].getCount()));
             list.add(inMap);
         }
         return list;

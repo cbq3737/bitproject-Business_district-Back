@@ -12,22 +12,22 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Upjong {
 
-   private String[] dong;
-   private String count;
+   private String[] dong2;
+   private int count;
 
-    public String[] getDong() {
-        return dong;
+    public String[] getDong2() {
+        return dong2;
     }
 
-    public void setDong(String[] dong) {
-        this.dong = dong;
+    public void setDong2(String[] dong2) {
+        this.dong2 = dong2;
     }
 
-    public String getCount() {
+    public int getCount() {
         return count;
     }
 
-    public void setCount(String count) {
+    public void setCount(int count) {
         this.count = count;
     }
 }

@@ -4,14 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 public class hap {
-    private String hap;
+    private int hap;
     private String danga;
 
-    public String getHap() {
+    public int getHap() {
         return hap;
     }
 
-    public void setHap(String hap) {
+    public void setHap(int hap) {
         this.hap = hap;
     }
 

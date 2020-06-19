@@ -10,6 +10,7 @@ public class predictyear {
     private String 월별2019매출예측;
     private String 월별2020매출예측;
     private String 상권_코드_명;
+    private int 점포_수;
 
     public String get월별2019매출예측() {
         return 월별2019매출예측;
@@ -25,6 +26,14 @@ public class predictyear {
 
     public void set월별2020매출예측(String 월별2020매출예측) {
         this.월별2020매출예측 = 월별2020매출예측;
+    }
+
+    public int get점포_수() {
+        return 점포_수;
+    }
+
+    public void set점포_수(int 점포_수) {
+        this.점포_수 = 점포_수;
     }
 
     public String get상권_코드_명() {
