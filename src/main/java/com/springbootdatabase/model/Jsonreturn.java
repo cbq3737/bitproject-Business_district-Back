@@ -7,23 +7,22 @@ import lombok.Setter;
 @Setter
 public class Jsonreturn {
 
-    private String gil;
-    private int totalscore;
+    private String sang;
+    private float score;
 
-    public String getGil() {
-        return this.gil;
+    public String getSang() {
+        return sang;
     }
 
-    public void setGil(String gil) {
-        this.gil = gil;
+    public void setSang(String sang) {
+        this.sang = sang;
     }
 
-    public int getTotalscore() {
-        return this.totalscore;
+    public float getScore() {
+        return score;
     }
 
-    public void setTotalscore(int totalscore) {
-        this.totalscore = totalscore;
+    public void setScore(float score) {
+        this.score = score;
     }
-
 }

@@ -8,6 +8,9 @@
     <select id="happrintbiyong1" resultType="com.springbootdatabase.model.hap1" parameterType="com.springbootdatabase.model.Biyong">
         select (((d*i)*0.01)/12)+menth+ingun+zeryo AS hap from biyong WHERE id = #{id} </select>
 
+    <select id="checkId" resultType="Integer" parameterType="com.springbootdatabase.model.Biyong">
+        select count(*) from biyong WHERE id = #{id}
+    </select>
 
     <select id="printbiyong" resultType="com.springbootdatabase.model.Biyong" parameterType="com.springbootdatabase.model.Biyong">
     select * from biyong WHERE id = #{id}
@@ -16,6 +19,9 @@
     <insert id="setBiyong" parameterType="com.springbootdatabase.model.Biyong">
         insert into biyong values(#{id}, #{g}, #{b}, #{d},#{i}, #{build}, #{inte}, #{sul},#{ga}, #{gita}, #{chong}, #{year},#{menth}, #{ingun}, #{zeryo}, #{gita2},#{danga})
     </insert>
+    <update id="updateBiyong" parameterType="com.springbootdatabase.model.Biyong">
+        update biyong set g= #{g}, b= #{b}, d= #{d},i= #{i}, build= #{build}, inte= #{inte}, sul= #{sul},ga= #{ga},gita= #{gita},chong= #{chong},year= #{year},menth= #{menth},ingun= #{ingun},zeryo= #{zeryo},gita2= #{gita2},danga= #{danga} where id= #{id}
+    </update>
     <delete id="deleteBiyong" parameterType="com.springbootdatabase.model.Biyong">
         delete from biyong where id = #{id}
     </delete>

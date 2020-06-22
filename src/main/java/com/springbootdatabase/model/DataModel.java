@@ -7,14 +7,13 @@ import lombok.Setter;
 @Setter
 public class DataModel {
 
-    private String dong;
+    private String bub;
 
-    public String getDong() {
-        return this.dong;
+    public String getBub() {
+        return bub;
     }
 
-    public void setDong(String dong) {
-        this.dong = dong;
+    public void setBub(String bub) {
+        this.bub = bub;
     }
-
 }

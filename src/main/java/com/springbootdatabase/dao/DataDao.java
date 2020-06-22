@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface DataDao {
     //HashMap<String,Jsonreturn> getSang(DataModel dataModel);
-    List<Jsonreturn> getSang(DataModel dataModel);
+    List<Jsonreturn> getGu(DataModel dataModel);
     List<Jsonreturn> getSung(DataModel dataModel);
-    List<Jsonreturn> getPeople(DataModel dataModel);
-    List<Jsonreturn> getPur(DataModel dataModel);
+    List<Jsonreturn> getZip(DataModel dataModel);
+    List<Jsonreturn> getGun(DataModel dataModel);
 
 }

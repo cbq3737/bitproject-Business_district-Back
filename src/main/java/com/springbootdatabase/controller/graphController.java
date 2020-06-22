@@ -34,12 +34,12 @@ public class graphController {
 
         request.setCharacterEncoding("UTF-8");
         DataModel dataModel = new DataModel();
-        String dong = post.get("dong").toString();
-        System.out.println(dong);
-        if(dong.equals("잠실동")){
-            dong = "잠실본동";
+        String bub = post.get("bub").toString();
+        System.out.println(bub);
+        if(bub.equals("잠실동")){
+            bub = "잠실본동";
         }
-        dataModel.setDong(dong);
+        dataModel.setBub(bub);
 
         HashMap<String,List<Jsonreturn>> jsonreturn= dataService.findData(dataModel);
         return jsonreturn;

@@ -20,16 +20,16 @@ public class DataServiceImpl implements DataService {
     @Override
     public HashMap<String,List<Jsonreturn>> findData(DataModel data){
 
-        List<Jsonreturn> json1 = dataDao.getSang(data);
+        List<Jsonreturn> json1 = dataDao.getGu(data);
         List<Jsonreturn> json2 = dataDao.getSung(data);
-        List<Jsonreturn> json3 = dataDao.getPeople(data);
-        List<Jsonreturn> json4 = dataDao.getPur(data);
+        List<Jsonreturn> json3 = dataDao.getZip(data);
+        List<Jsonreturn> json4 = dataDao.getGun(data);
 
         HashMap<String,List<Jsonreturn>> json= new HashMap<>();
-        json.put("sang",json1);
+        json.put("gu",json1);
         json.put("sung",json2);
-        json.put("people",json3);
-        json.put("Pur",json4);
+        json.put("zip",json3);
+        json.put("gun",json4);
         return json;
     }
 

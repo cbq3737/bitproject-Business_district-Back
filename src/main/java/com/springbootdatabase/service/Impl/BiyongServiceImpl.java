@@ -13,6 +13,8 @@ public class BiyongServiceImpl implements BiyongService {
 
     @Autowired
     BiyongDao biyongDao;
+    @Autowired
+    BiyongService biyongService;
 
     @Override
     public hap happrintbiyong(final Biyong biyong) {
@@ -29,9 +31,22 @@ public class BiyongServiceImpl implements BiyongService {
     }
     @Override
     public void insertbiyong(final Biyong biyong) {
-        biyongDao.setBiyong(biyong);
-    }
+        int result = biyongService.checkId(biyong);
 
+        if (result > 0 )
+        {
+           biyongDao.updateBiyong(biyong);
+        }
+        else
+        {
+            biyongDao.setBiyong(biyong);
+        }
+    }
+    @Override
+    public int checkId(final Biyong biyong){
+        int result = biyongDao.checkId(biyong);
+        return result;
+    }
     @Override
     public void deletebiyong(final Biyong biyong) {
         biyongDao.deleteBiyong(biyong);
