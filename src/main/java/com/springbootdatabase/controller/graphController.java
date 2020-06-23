@@ -46,6 +46,23 @@ public class graphController {
     }
 
     @ResponseBody
+    @RequestMapping(value="/api/dining",method= RequestMethod.POST)
+    public ResponseEntity<String[]> dining(@RequestBody final HashMap<String,Object> post, HttpServletRequest request) throws Exception {
+
+        request.setCharacterEncoding("UTF-8");
+        RestTemplate restTemplate = new RestTemplate();
+        String gu = post.get("gu").toString();
+        HashMap<String,String> map = new HashMap<>();
+        map.put("gu",gu);
+        HttpEntity<?> entitiy = new HttpEntity<>(map);
+        String url= "http://localhost:5000/dining";
+        ResponseEntity<String[]> responseEntity = restTemplate.exchange(url,HttpMethod.POST,entitiy,String[].class);
+        System.out.println(gu);
+
+        return responseEntity;
+    }
+
+    @ResponseBody
     @RequestMapping(value ="/api/instar", method = RequestMethod.POST)
     public instarDto[] instar(@RequestBody final HashMap<String,Object> post, HttpServletRequest request) throws Exception
     {
