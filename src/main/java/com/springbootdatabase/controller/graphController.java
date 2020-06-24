@@ -1,11 +1,6 @@
 package com.springbootdatabase.controller;
 
-import com.springbootdatabase.model.ChuiDto;
-import com.springbootdatabase.model.DataModel;
-import com.springbootdatabase.model.Jsonreturn;
-import com.springbootdatabase.model.Upjong;
-import com.springbootdatabase.model.instarDto;
-import com.springbootdatabase.model.instarDto2;
+import com.springbootdatabase.model.*;
 import com.springbootdatabase.service.DataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
@@ -47,17 +42,20 @@ public class graphController {
 
     @ResponseBody
     @RequestMapping(value="/api/dining",method= RequestMethod.POST)
-    public ResponseEntity<String[]> dining(@RequestBody final HashMap<String,Object> post, HttpServletRequest request) throws Exception {
+    public ResponseEntity<dining[]> dining(@RequestBody final HashMap<String,Object> post, HttpServletRequest request) throws Exception {
 
         request.setCharacterEncoding("UTF-8");
         RestTemplate restTemplate = new RestTemplate();
-        String gu = post.get("gu").toString();
+
         HashMap<String,String> map = new HashMap<>();
-        map.put("gu",gu);
+        map.put("gu",post.get("gu").toString());
+        System.out.println(post.get("gu").toString());
+
         HttpEntity<?> entitiy = new HttpEntity<>(map);
-        String url= "http://localhost:5000/dining";
-        ResponseEntity<String[]> responseEntity = restTemplate.exchange(url,HttpMethod.POST,entitiy,String[].class);
-        System.out.println(gu);
+        String url= "http://localhost:5000/bunseok";
+        ResponseEntity<dining[]> responseEntity = restTemplate.exchange(url,HttpMethod.POST,entitiy,dining[].class);
+        System.out.println(responseEntity.getBody()[0].getDong());
+        System.out.println(responseEntity.getBody()[0].getCount());
 
         return responseEntity;
     }
