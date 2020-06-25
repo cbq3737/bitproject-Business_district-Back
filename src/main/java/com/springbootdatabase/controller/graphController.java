@@ -42,7 +42,7 @@ public class graphController {
 
     @ResponseBody
     @RequestMapping(value="/api/dining",method= RequestMethod.POST)
-    public ResponseEntity<dining[]> dining(@RequestBody final HashMap<String,Object> post, HttpServletRequest request) throws Exception {
+    public dining[] dining(@RequestBody final HashMap<String,Object> post, HttpServletRequest request) throws Exception {
 
         request.setCharacterEncoding("UTF-8");
         RestTemplate restTemplate = new RestTemplate();
@@ -54,10 +54,8 @@ public class graphController {
         HttpEntity<?> entitiy = new HttpEntity<>(map);
         String url= "http://localhost:5000/bunseok";
         ResponseEntity<dining[]> responseEntity = restTemplate.exchange(url,HttpMethod.POST,entitiy,dining[].class);
-        System.out.println(responseEntity.getBody()[0].getDong());
-        System.out.println(responseEntity.getBody()[0].getCount());
 
-        return responseEntity;
+        return responseEntity.getBody();
     }
 
     @ResponseBody

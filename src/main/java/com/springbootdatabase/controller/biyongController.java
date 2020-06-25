@@ -52,23 +52,70 @@ public class biyongController {
         predictyear[] a=responseEntity.getBody();
 
 
-        //Map<String,HashMap> outmap= new HashMap<String,HashMap>(); //map안에 제네릭 다 써줄 필요없음.
+
         List<Map<String,String>> list = new ArrayList<>();
 
         for(int i =0; i<a.length; i++){
             float month2019 =Float.parseFloat(a[i].get월별2019매출예측());
             float month2020 =Float.parseFloat(a[i].get월별2020매출예측());
+            String s = String.valueOf((int)(month2019));
+            String y = String.valueOf((int)(month2020));
+            String bis = String.valueOf(biyong.getHap());
+            String biy = String.valueOf(biyong3.getHap());
+            String m2019="";
+            String m2020="";
+            String mbs="";
+            String mby="";
+            System.out.println(s);
+            System.out.println(y);
+
+            for(int j =1;j<=s.length();j++)
+            {
+                m2019 =s.charAt(s.length()-j)+m2019;
+                    if(j % 3 == 0&& j !=s.length()) {
+                        m2019 = ","+m2019 ;
+                    }
+            }
+
+            for(int j =1;j<=y.length();++j)
+            {
+                m2020 =y.charAt(y.length()-j)+m2020;
+
+                    if (j % 3 == 0 && j !=y.length()) {
+                        m2020 = "," + m2020;
+                    }
+            }
+
+            for(int j =1;j<=bis.length();++j)
+            {
+                mbs = bis.charAt(bis.length()-j)+mbs ;
+                if(j % 3 == 0&& j !=bis.length()) {
+                    mbs = ","+mbs ;
+                }
+            }
+
+            for(int j =1;j<=biy.length();++j)
+            {
+                mby = biy.charAt(biy.length()-j)+mby;
+                if(j % 3 == 0 && j !=biy.length()) {
+                    mby = ","+mby;
+                }
+            }
 
             HashMap<String,String> inmap= new HashMap<String,String>();
+
             inmap.put("월별2019매출예측",String.valueOf((int)(month2019)));
             inmap.put("월별2020매출예측",String.valueOf((int)(month2020)));
             inmap.put("hap",String.valueOf(biyong.getHap()));
             inmap.put("hap1",String.valueOf(biyong3.getHap()));
+            inmap.put("월별2019매출예측2",m2019);
+            inmap.put("월별2020매출예측2",m2020);
+            inmap.put("hap2",mbs);
+            inmap.put("hap12",mby);
             inmap.put("danga",biyong.getDanga());
             inmap.put("gil",a[i].get상권_코드_명()); //길이름의 맵
             list.add(inmap);
         }
-        
        // biyongService.deletebiyong(biyong1);
         return list;
     }
